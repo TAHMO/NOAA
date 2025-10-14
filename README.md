@@ -7,22 +7,16 @@ The primary objective is to equip national meteorological agencies with the skil
 data and validating it against satellite products, enabling identification of network issues and
 building confidence in observational networks. <br>
 
-<<<<<<< HEAD
-[![Open Notebook: 01_Ground_QC.ipynb In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaburia/NOAA-workshop/blob/main/01_Ground_QC.ipynb)
-=======
+
 [![Open Notebook: 01_Ground_QC.ipynb In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/01_Ground_QC_improved_v5.ipynb)
->>>>>>> e422350e731c05671e9e5c10d3b85b0892c9eaae
 
 ## Focus Area 2 — Next-Gen Precipitation for Trends & Extremes
 **Core Objective**: To compare next-generation precipitation datasets for historical trends,
 anomalies, and extreme event performance, enabling NMHS to select optimal products for
 climate monitoring and risk assessment.
 
-<<<<<<< HEAD
-[![Open Notebook: 02_Precip_Trends.ipynb In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaburia/NOAA-workshop/blob/main/02_Precip_Trends.ipynb#scrollTo=f550c41d)
-=======
+
 [![Open Notebook: 02_Precip_Trends.ipynb In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/NOAA_Rainfall_Skill_Explorer_v2.ipynb)
->>>>>>> e422350e731c05671e9e5c10d3b85b0892c9eaae
 
 
 ## Focus Area 3 — Temperature Quality & Microclimates
@@ -34,7 +28,6 @@ climate monitoring and risk assessment.
 <br>
 <br>
 <br>
-<<<<<<< HEAD
 
 <!--  
 Use the Google Colab as the notebook to be able to run the activities of the workshop<br>
@@ -91,4 +84,4 @@ Use the Google Colab as the notebook to be able to run the activities of the wor
 - Token Access from NCEI
 - Google Account
 =======
->>>>>>> e422350e731c05671e9e5c10d3b85b0892c9eaae
+
