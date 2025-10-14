@@ -167,96 +167,81 @@ def load_geotiffs_as_xarray(filepaths):
 
 # ee.Initialize(project='leafy-computing-310902')  # <-- change project if needed
 #
-# def get_chirps_pentad_gee(start_date, end_date, region=None, export_path="chirps_pentad.nc", daily_pentad=True):
-#     """
-#     Extract CHIRPS pentad rainfall data from Google Earth Engine as an xarray.Dataset.
-#
-#     Parameters
-#     ----------
-#     start_date : str (YYYY-MM-DD)
-#         Start date for extraction.
-#     end_date : str (YYYY-MM-DD)
-#         End date for extraction.
-#     region : ee.Geometry, optional
-#         Region of interest (polygon). If None, loads global dataset.
-#     export_path : str
-#         Path to save the NetCDF file.
-#     daily_pentad : bool
-#         True extracts pentad, False extracts daily
-#
-#     Returns
-#     -------
-#     xarray.Dataset
-#         Dataset with variable 'precipitation' and dimensions (time, y, x).
-#     """
-#     # Load CHIRPS pentad dataset (mm/5-days)
-#     if daily_pentad:
-#         chirps = (
-#             ee.ImageCollection("UCSB-CHG/CHIRPS/PENTAD")
-#             .filterDate(start_date, end_date)
-#             .select("precipitation")
-#         )
-#     else:
-#         chirps = (
-#             ee.ImageCollection("UCSB-CHG/CHIRPS/DAILY")
-#             .filterDate(start_date, end_date)
-#             .select("precipitation")
-#         )
-#
-#     if region:
-#         chirps = chirps.map(lambda img: img.clip(region))
-#
-#     # Export ImageCollection → GeoTIFF stack
-#     export_dir = "chirps_temp"
-#     os.makedirs(export_dir, exist_ok=True)
-#
-#     # --- Count total images to download ---
-#     total_images = chirps.size().getInfo()
-#     pbar = tqdm(total=total_images, desc="Exporting CHIRPS data")
-#
-#     geemap.ee_export_image_collection(
-#         chirps,
-#         out_dir=export_dir,
-#         scale=5500,  # ~5.5 km resolution
-#         file_per_band=False,
-#     )
-#
-#     # --- Monitor number of files in export folder ---
-#     last_count = 0
-#     while last_count < total_images:
-#         tiff_files = glob.glob(os.path.join(export_dir, "*.tif"))
-#         current_count = len(tiff_files)
-#         if current_count != last_count:
-#             pbar.update(current_count - last_count)
-#             last_count = current_count
-#         time.sleep(1)  # small delay to avoid hammering the disk
-#
-#     pbar.close()
-#
-#     # Collect exported GeoTIFFs
-#     # tiff_files = glob.glob(os.path.join(export_dir, "*.tif"))
-#     tiff_files.sort()  # ensure chronological order
-#
-#     # Open as xarray dataset
-#     ds = xr.open_mfdataset(
-#         tiff_files, combine="nested", concat_dim="time", engine="rasterio"
-#     )
-#
-#     # Parse time from filenames (assumes YYYYMMDD.tif naming)
-#     dates = [os.path.basename(f).split(".")[0] for f in tiff_files]
-#     ds = ds.assign_coords(time=pd.to_datetime(dates, format="%Y%m%d"))
-#
-#     # Clean dataset: remove band dim, rename variable
-#     ds = ds.squeeze("band", drop=True)
-#     ds = ds.rename({"band_data": "precipitation"})
-#
-#     # Add CRS
-#     ds.rio.write_crs("EPSG:4326", inplace=True)
-#
-#     # Save as NetCDF
-#     ds.to_netcdf(export_path)
-#
-#     return ds
+def get_chirps_pentad_gee(start_date, end_date, region=None, export_path="chirps_pentad.nc", daily_pentad=True):
+    """
+    Extract CHIRPS pentad rainfall data from Google Earth Engine as an xarray.Dataset.
+
+    Parameters
+    ----------
+    start_date : str (YYYY-MM-DD)
+        Start date for extraction.
+    end_date : str (YYYY-MM-DD)
+        End date for extraction.
+    region : ee.Geometry, optional
+        Region of interest (polygon). If None, loads global dataset.
+    export_path : str
+        Path to save the NetCDF file.
+    daily_pentad : bool
+        True extracts pentad, False extracts daily
+
+    Returns
+    -------
+    xarray.Dataset
+        Dataset with variable 'precipitation' and dimensions (time, y, x).
+    """
+    # Load CHIRPS pentad dataset (mm/5-days)
+    if daily_pentad:
+        chirps = (
+            ee.ImageCollection("UCSB-CHG/CHIRPS/PENTAD")
+            .filterDate(start_date, end_date)
+            .select("precipitation")
+        )
+    else:
+        chirps = (
+            ee.ImageCollection("UCSB-CHG/CHIRPS/DAILY")
+            .filterDate(start_date, end_date)
+            .select("precipitation")
+        )
+
+    if region:
+        chirps = chirps.map(lambda img: img.clip(region))
+
+    # Export ImageCollection → GeoTIFF stack
+    export_dir = "chirps_temp"
+    os.makedirs(export_dir, exist_ok=True)
+
+    geemap.ee_export_image_collection(
+        chirps,
+        out_dir=export_dir,
+        scale=5500,  # ~5.5 km resolution
+        file_per_band=False,
+    )
+
+    # Collect exported GeoTIFFs
+    tiff_files = glob.glob(os.path.join(export_dir, "*.tif"))
+    tiff_files.sort()  # ensure chronological order
+
+    # Open as xarray dataset
+    ds = xr.open_mfdataset(
+        tiff_files, combine="nested", concat_dim="time", engine="rasterio"
+    )
+
+    # Parse time from filenames (assumes YYYYMMDD.tif naming)
+    dates = [os.path.basename(f).split(".")[0] for f in tiff_files]
+    ds = ds.assign_coords(time=pd.to_datetime(dates, format="%Y%m%d"))
+
+    # Clean dataset: remove band dim, rename variable
+    ds = ds.squeeze("band", drop=True)
+    ds = ds.rename({"band_data": "precipitation"})
+
+    # Add CRS
+    ds.rio.write_crs("EPSG:4326", inplace=True)
+
+    # Save as NetCDF
+    ds.to_netcdf(export_path)
+
+    return ds
+
 
 def get_chirps_pentad_gee_progress(start_date, end_date, region=None, export_path="chirps_pentad.nc", daily_pentad=True):
     """
