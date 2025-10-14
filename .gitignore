@@ -1,1 +1,20 @@
 .idea
+### Python template
+# Byte-compiled / optimized / DLL files
+__pycache__/
+utils/Datasets/
+utils/config.json
+utils/imerg_raw_temp/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.env
+# Spyder project settings
+.spyderproject
+.spyproject
