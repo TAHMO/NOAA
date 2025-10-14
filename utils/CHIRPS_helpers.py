@@ -3,6 +3,7 @@ import pandas as pd
 import datetime
 from utils.helpers import get_region_geojson
 import os
+import time
 import rioxarray
 import xarray as xr
 from tqdm.notebook import tqdm
@@ -189,7 +190,7 @@ def get_chirps_pentad_gee(start_date, end_date, region=None, export_path="chirps
         Dataset with variable 'precipitation' and dimensions (time, y, x).
     """
     # Load CHIRPS pentad dataset (mm/5-days)
-    if daily_pentad: 
+    if daily_pentad:
         chirps = (
             ee.ImageCollection("UCSB-CHG/CHIRPS/PENTAD")
             .filterDate(start_date, end_date)
@@ -201,7 +202,6 @@ def get_chirps_pentad_gee(start_date, end_date, region=None, export_path="chirps
             .filterDate(start_date, end_date)
             .select("precipitation")
         )
-        
 
     if region:
         chirps = chirps.map(lambda img: img.clip(region))
@@ -210,6 +210,10 @@ def get_chirps_pentad_gee(start_date, end_date, region=None, export_path="chirps
     export_dir = "chirps_temp"
     os.makedirs(export_dir, exist_ok=True)
 
+    # --- Count total images to download ---
+    total_images = chirps.size().getInfo()
+    pbar = tqdm(total=total_images, desc="Exporting CHIRPS data")
+
     geemap.ee_export_image_collection(
         chirps,
         out_dir=export_dir,
@@ -217,22 +221,26 @@ def get_chirps_pentad_gee(start_date, end_date, region=None, export_path="chirps
         file_per_band=False,
     )
 
+    # --- Monitor number of files in export folder ---
+    last_count = 0
+    while last_count < total_images:
+        tiff_files = glob.glob(os.path.join(export_dir, "*.tif"))
+        current_count = len(tiff_files)
+        if current_count != last_count:
+            pbar.update(current_count - last_count)
+            last_count = current_count
+        time.sleep(1)  # small delay to avoid hammering the disk
+
+    pbar.close()
+
     # Collect exported GeoTIFFs
-    tiff_files = glob.glob(os.path.join(export_dir, "*.tif"))
+    # tiff_files = glob.glob(os.path.join(export_dir, "*.tif"))
     tiff_files.sort()  # ensure chronological order
 
-    datasets = []
-    for f in tqdm(tiff_files, desc="Loading TIFFs"):
-        ds = xr.open_dataset(f, engine="rasterio")
-        datasets.append(ds)
-
-    # Combine datasets
-    ds = xr.concat(datasets, dim="time")
-
-    # # Open as xarray dataset
-    # ds = xr.open_mfdataset(
-    #     tiff_files, combine="nested", concat_dim="time", engine="rasterio"
-    # )
+    # Open as xarray dataset
+    ds = xr.open_mfdataset(
+        tiff_files, combine="nested", concat_dim="time", engine="rasterio"
+    )
 
     # Parse time from filenames (assumes YYYYMMDD.tif naming)
     dates = [os.path.basename(f).split(".")[0] for f in tiff_files]
