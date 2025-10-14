@@ -6,7 +6,7 @@ import os
 import time
 import rioxarray
 import xarray as xr
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 
 import geemap
 import rioxarray
