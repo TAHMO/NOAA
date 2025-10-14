@@ -9,13 +9,13 @@ Datasets Required: (Stored at Shared Drives)
 
 '''
 import ee
-from utils.CHIRPS_helpers import get_chirps_pentad_gee
+from CHIRPS_helpers import get_chirps_pentad_gee
 import json
 import geopandas as gpd
 import os
-from utils.IMERG_helpers import get_imerg_raw
-from utils.ERA5_helpers import era5_data_extracts, era5_var_handling
-from utils.helpers import get_region_geojson
+from IMERG_helpers import get_imerg_raw
+from ERA5_helpers import era5_data_extracts, era5_var_handling
+from helpers import get_region_geojson
 # from uti
 
 # authenticate and initialize if not done during the runtime
@@ -40,9 +40,9 @@ def xmin_ymin_xmax_ymax(polygon):
 
 def fetch_region_google(query):
     """Primary: Fetch polygon geometry via Google Maps API"""
-    if not location_key:
+    if not location_keys:
         raise RuntimeError("Missing Google Maps API key.")
-    region_geom = get_region_geojson(query, location_key)['geometry']['coordinates'][0]
+    region_geom = get_region_geojson(query, location_keys)['geometry']['coordinates'][0]
     return region_geom
 
 def fetch_region_osm(query):
@@ -174,7 +174,7 @@ def extract_product_data(start_date, end_date, product, region_query, output_loc
 
   elif product == 'TAHMO':
     print("Extracting TAHMO data...")
-    from utils.filter_stations import RetrieveData
+    from filter_stations import RetrieveData
 
     api_key = config['apiKey']
     api_secret = config['apiSecret']
@@ -198,9 +198,9 @@ def extract_product_data(start_date, end_date, product, region_query, output_loc
 
 
 # List out the events
-EVENTS={'Kenya': ('2024-04-20','2024-05-05'),
-        'Uganda': ('2022-07-28','2022-08-02'),
-        'Rwanda': ('2023-05-01','2023-05-08')
+EVENTS={'Kenya': ('2014-01-01','2024-12-31'),
+        'Uganda': ('2014-01-01','2024-12-31'),
+        'Rwanda': ('2014-01-01','2024-12-31')
         }
 
 # extract for each country for all the products
