@@ -5,6 +5,7 @@ from utils.helpers import get_region_geojson
 import os
 import rioxarray
 import xarray as xr
+from tqdm.notebook import tqdm
 
 import geemap
 import rioxarray
@@ -220,10 +221,18 @@ def get_chirps_pentad_gee(start_date, end_date, region=None, export_path="chirps
     tiff_files = glob.glob(os.path.join(export_dir, "*.tif"))
     tiff_files.sort()  # ensure chronological order
 
-    # Open as xarray dataset
-    ds = xr.open_mfdataset(
-        tiff_files, combine="nested", concat_dim="time", engine="rasterio"
-    )
+    datasets = []
+    for f in tqdm(tiff_files, desc="Loading TIFFs"):
+        ds = xr.open_dataset(f, engine="rasterio")
+        datasets.append(ds)
+
+    # Combine datasets
+    ds = xr.concat(datasets, dim="time")
+
+    # # Open as xarray dataset
+    # ds = xr.open_mfdataset(
+    #     tiff_files, combine="nested", concat_dim="time", engine="rasterio"
+    # )
 
     # Parse time from filenames (assumes YYYYMMDD.tif naming)
     dates = [os.path.basename(f).split(".")[0] for f in tiff_files]
