@@ -2,11 +2,13 @@ import ee
 import pandas as pd
 import datetime
 from utils.helpers import get_region_geojson
-import datetime
-import ee
 import os
 import rioxarray
 import xarray as xr
+
+import geemap
+import rioxarray
+import glob
 
 def extract_chirps_daily(start_date_str, end_date_str, bbox=None, region_name=None, polygon=None, api_key=''):
     """
@@ -159,13 +161,7 @@ def load_geotiffs_as_xarray(filepaths):
     data = data.assign_coords(time=times)
     return data
 
-import ee
-import geemap
-import xarray as xr
-import rioxarray
-import os
-import glob
-import pandas as pd
+
 
 # ee.Initialize(project='leafy-computing-310902')  # <-- change project if needed
 
