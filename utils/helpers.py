@@ -13,7 +13,6 @@ from datetime import datetime, timedelta
 from IPython.display import HTML, display
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
-from utils.filter_stations import RetrieveData
 import base64
 import json
 import requests
