@@ -16,6 +16,8 @@ import os
 from IMERG_helpers import get_imerg_raw
 from ERA5_helpers import era5_data_extracts, era5_var_handling
 from helpers import get_region_geojson
+from datetime import date, timedelta
+
 # from uti
 
 # authenticate and initialize if not done during the runtime
@@ -60,6 +62,12 @@ def fetch_region_osm(query):
         raise ValueError("Unsupported geometry type from OSM.")
 
 
+def get_bounding_box(geom_coords):
+    lons = [pt[0] for pt in geom_coords]
+    lats = [pt[1] for pt in geom_coords]
+    xmin, ymin, xmax, ymax = min(lons), min(lats), max(lons), max(lats)
+    return ee.Geometry.Rectangle([xmin, ymin, xmax, ymax])
+
 # Extract CHIRPS in Kenya
 def extract_product_data(start_date, end_date, product, region_query, output_location, variable=None):
   '''
@@ -67,9 +75,14 @@ def extract_product_data(start_date, end_date, product, region_query, output_loc
   '''
   # get the polygon for the region
   region_geom = fetch_region_google(region_query)
-  xmin, ymin, xmax, ymax = xmin_ymin_xmax_ymax(region_geom)
 
-  roi = ee.Geometry.Polygon(region_geom)
+  # ✅ Handle MultiPolygon
+  if isinstance(region_geom[0][0], list):
+      region_geom = region_geom[0]
+
+  # ✅ Convert to bounding box
+  xmin, ymin, xmax, ymax = xmin_ymin_xmax_ymax(region_geom)
+  roi = ee.Geometry.Rectangle([xmin, ymin, xmax, ymax])
 
   # get the product
 
@@ -103,7 +116,8 @@ def extract_product_data(start_date, end_date, product, region_query, output_loc
     ds_raw = get_imerg_raw(start_date,
                         end_date,
                        region=roi,
-                       export_path=f'{output_location}/IMERG_{start_date}_{end_date}_{region_query}.nc')
+                       export_path=f'{output_location}/IMERG_{start_date}_{end_date}_{region_query}.nc',
+                           temporal_agg='daily')
 
   elif product == 'TAMSAT':
     # !git clone https://github.com/TAMSAT/tamsat_download_extraction_api > /dev/null 2>&1
@@ -198,24 +212,36 @@ def extract_product_data(start_date, end_date, product, region_query, output_loc
 
 
 # List out the events
-EVENTS={'Kenya': ('2014-01-01','2024-12-31'),
+EVENTS={'Kenya': ('2023-12-30','2024-12-31'),
         'Uganda': ('2014-01-01','2024-12-31'),
         'Rwanda': ('2014-01-01','2024-12-31')
         }
 
 # extract for each country for all the products
-products_list = ['ERA5', 'IMERG', 'TAHMO']
+products_list = ['IMERG']
 output_location = 'Datasets'
 
 # check if file path exists
 if not os.path.exists(output_location):
       os.makedirs(output_location, exist_ok=True)
 
+
+
+def chunk_dates(start, end, step_days=365):
+    s = date.fromisoformat(start)
+    e = date.fromisoformat(end)
+    chunks = []
+    while s <= e:
+        chunk_end = min(s + timedelta(days=step_days - 1), e)
+        chunks.append((s.isoformat(), chunk_end.isoformat()))
+        s = chunk_end + timedelta(days=1)
+    return chunks
+
 # ------------------- Data Extraction Loop
 for product in products_list:
-  print(f"Extracting {product} data...")
-  for country, dates in EVENTS.items():
-    print(f"Extracting {product} data for {country} and dates {dates[0]} to {dates[1]}")
-    extract_product_data(dates[0], dates[1], product, country, output_location)
+    for country, dates in EVENTS.items():
+        for start_date, end_date in chunk_dates(dates[0], dates[1], 365):  # 1 year chunks
+            print(f"Extracting {product} for {country} from {start_date} to {end_date}")
+            extract_product_data(start_date, end_date, product, country, output_location)
 
 
