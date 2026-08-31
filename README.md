@@ -1,30 +1,50 @@
 # NOAA Workshop
 
-The primary objective is to equip national meteorological agencies with the skills to access, explore, and apply the high-resolution reanalysis dataset. A specific focus will be on understanding severe weather events, such as extreme rainfall, high winds, and temperature anomalies.<br><br>
+The primary objective is to equip national meteorological agencies with the skills to access, explore, and apply high-resolution reanalysis datasets. A specific focus is on understanding severe weather events, including extreme rainfall, high winds, and temperature anomalies.
 
-## Focus Area 1 — Ground Observations Monitoring &amp; QC
-**Core Objective**: To equip NMHS participants with tools for quality-controlling ground station
-data and validating it against satellite products, enabling identification of network issues and
-building confidence in observational networks. <br>
+---
 
+## Focus Area 1 — Ground Observations Monitoring & QC
 
-[![Open Notebook: 01_Ground_QC.ipynb In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/01_Ground_QC_improved_v5.ipynb)
+**Core Objective:** Equip NMHS participants with tools for quality-controlling ground station data and validating it against satellite products, enabling identification of network issues and building confidence in observational networks.
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nelson1798/NOAA/blob/main/01_Ground_QC_improved_v5.ipynb)
+
+---
 
 ## Focus Area 2 — Next-Gen Precipitation for Trends & Extremes
-**Core Objective**: To compare next-generation precipitation datasets for historical trends,
-anomalies, and extreme event performance, enabling NMHS to select optimal products for
-climate monitoring and risk assessment.
 
+**Core Objective:** Compare next-generation precipitation datasets for historical trends, anomalies, and extreme event performance, enabling NMHS participants to select optimal products for climate monitoring and risk assessment.
 
-[![Open Notebook: 02_Precip_Trends.ipynb In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/NOAA_Rainfall_Skill_Explorer_v2.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nelson1798/NOAA/blob/main/NOAA_Rainfall_Skill_Explorer_v2.ipynb)
 
+---
 
 ## Focus Area 3 — Temperature Quality & Microclimates
-**Core Objective**: To demonstrate the advantages of high-resolution temperature data in capturing microclimates and computing derived metrics like PET, for better assessment of heat- related risks.
 
-[![Open Notebook: 02_Precip_Trends.ipynb In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/03_Temperature_Quality_PET.ipynb)
+**Core Objective:** Demonstrate the advantages of high-resolution temperature data in capturing microclimates and computing derived metrics such as Potential Evapotranspiration (PET) for improved assessment of heat-related risks.
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nelson1798/NOAA/blob/main/03_Temperature_Quality_PET.ipynb)
 
+---
+
+## Focus Area 4 — Agro-Ecological Zoning with PyAEZ
+
+**Core Objective:** Synthesise climate monitoring outputs from Focus Areas 1–3 into agricultural interpretation using PyAEZ (FAO/AIT), computing thermal climate classifications, Length of Growing Period (LGP), and crop suitability maps for Somalia, Sudan, Ethiopia, Tanzania, Eritrea, and Djibouti.
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nelson1798/NOAA/blob/main/04_AgroEcological_Zoning_PyAEZ.ipynb)
+
+---
+
+<!-- ## Service Account & Shared Drive
+
+All notebooks authenticate with Google Earth Engine using a shared service account and load pre-computed datasets from the NOAA-workshop2 Shared Drive, so no manual data upload or API configuration is required. -->
+
+<!-- | Resource | Details |
+|---|---|
+| Service account | `gee-notebook-user@natural-notch-435413-j3.iam.gserviceaccount.com` |
+| Key file (Drive) | [Download](https://drive.google.com/file/d/181IKB3sJ3iUn6ZOZbg50htgH2JKcxFkT/view?usp=sharing) |
+| Shared Drive | `Shareddrives/NOAA-workshop2` | -->
 <br>
 <br>
 <br>
