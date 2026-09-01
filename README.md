@@ -8,7 +8,7 @@ The primary objective is to equip national meteorological agencies with the skil
 
 **Core Objective:** Equip NMHS participants with tools for quality-controlling ground station data and validating it against satellite products, enabling identification of network issues and building confidence in observational networks.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nelson1798/NOAA/blob/main/01_Ground_QC_improved_v5.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/01_Ground_QC_improved_v5.ipynb)
 
 ---
 
@@ -16,7 +16,7 @@ The primary objective is to equip national meteorological agencies with the skil
 
 **Core Objective:** Compare next-generation precipitation datasets for historical trends, anomalies, and extreme event performance, enabling NMHS participants to select optimal products for climate monitoring and risk assessment.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nelson1798/NOAA/blob/main/NOAA_Rainfall_Skill_Explorer_v2.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/NOAA_Rainfall_Skill_Explorer_v2.ipynb)
 
 ---
 
@@ -24,15 +24,15 @@ The primary objective is to equip national meteorological agencies with the skil
 
 **Core Objective:** Demonstrate the advantages of high-resolution temperature data in capturing microclimates and computing derived metrics such as Potential Evapotranspiration (PET) for improved assessment of heat-related risks.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nelson1798/NOAA/blob/main/03_Temperature_Quality_PET.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/03_Temperature_Quality_PET.ipynb)
 
 ---
 
 ## Focus Area 4 — Agro-Ecological Zoning with PyAEZ
 
-**Core Objective:** Synthesise climate monitoring outputs from Focus Areas 1–3 into agricultural interpretation using PyAEZ (FAO/AIT), computing thermal climate classifications, Length of Growing Period (LGP), and crop suitability maps for Somalia, Sudan, Ethiopia, Tanzania, Eritrea, and Djibouti.
+**Core Objective:** Synthesise climate monitoring outputs from Focus Areas 1–3 into agricultural interpretation using PyAEZ (FAO/AIT), computing thermal climate classifications, Length of Growing Period (LGP), and crop suitability maps for, Kenya, Somalia, Sudan, Ethiopia, Tanzania, Eritrea, and Djibouti.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nelson1798/NOAA/blob/main/04_AgroEcological_Zoning_PyAEZ.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/04_AgroEcological_Zoning_PyAEZ.ipynb)
 
 ---
 
