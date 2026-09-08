@@ -1,0 +1,44 @@
+name: noaa-workshop
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - setuptools
+  - jupyterlab
+  - ipykernel
+  - ipywidgets
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - matplotlib-scalebar
+  - seaborn
+  - scikit-learn
+  - statsmodels
+  - xarray>=2024.7,<2025.12
+  - netcdf4
+  - cftime
+  - geopandas
+  - cartopy
+  - rioxarray
+  - contextily
+  - shapely
+  - pyproj
+  - pyogrio
+  - folium
+  - plotly
+  - earthengine-api
+  - geemap
+  - google-api-python-client
+  - google-cloud-storage
+  - google-auth-oauthlib
+  - requests
+  - tqdm
+  - haversine
+  - networkx
+  - wget
+  - gdown
+  - pip:
+      - faostat==1.1.2
+      - filter_stations==0.6.2

@@ -60,3 +60,33 @@ The primary objective is to equip national meteorological agencies with the skil
 - API access to CBAM
 - Token access from NCEI
 - Google Account
+
+## Running outside Google Colab
+
+The notebooks also run in Jupyter Notebook/JupyterLab, including Anaconda.
+The recommended Windows, macOS, and Linux setup uses the tested Conda
+environment definition, which installs the geospatial packages from
+`conda-forge` rather than relying on platform-specific system libraries:
+
+```bash
+conda env create -f environment.yml
+conda activate noaa-workshop
+python -m ipykernel install --user --name noaa-workshop --display-name "Python (NOAA workshop)"
+jupyter lab
+```
+
+Open the notebook from that repository folder and run its cells from the top.
+On Colab, the existing Shared Drive remains the cache. Locally, data is saved
+in `.noaa-workshop-cache/` beside the notebooks instead. To place this cache
+elsewhere, set `NOAA_WORKSHOP_DATA_DIR` before starting Jupyter. When a custom
+data upload is requested in local Jupyter, enter the path to each file in the
+prompt shown by the notebook.
+
+To confirm the active Conda environment has the required notebook and
+geospatial dependencies, run:
+
+```bash
+python -m unittest tests/test_environment.py
+```
+
+`requirements.txt` remains available for Google Colab and pip-only installs.

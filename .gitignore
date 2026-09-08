@@ -5,6 +5,7 @@ __pycache__/
 utils/Datasets/
 utils/config.json
 utils/imerg_raw_temp/
+.noaa-workshop-cache/
 
 # Environments
 .env
