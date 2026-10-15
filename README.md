@@ -1,7 +1,7 @@
 # NOAA Workshop
 
 > **Branch `zambia-workshop` (Zambia workshop, 24–29 Nov):** the notebooks cover
-> **Zimbabwe, Malawi, Mozambique, Botswana and the DRC**, with Zimbabwe as the default.
+> **Zimbabwe, Malawi, Mozambique, Botswana, the DRC and Madagascar**, with Zimbabwe as the default.
 > The analysis period is Jul 2023 – Jun 2025: the El Niño drought season plus the wet
 > 2024/25 season, with case studies for Cyclone Chido and the Gaborone and Kinshasa floods.
 > See [ZAMBIA_WORKSHOP_NOTES.md](ZAMBIA_WORKSHOP_NOTES.md) for the details.
@@ -36,7 +36,7 @@ The primary objective is to equip national meteorological agencies with the skil
 
 ## Focus Area 4 — Agro-Ecological Zoning with PyAEZ
 
-**Core Objective:** Synthesise climate monitoring outputs from Focus Areas 1–3 into agricultural interpretation using PyAEZ (FAO/AIT), computing thermal climate classifications, Length of Growing Period (LGP), and crop suitability maps for Zimbabwe, Malawi, Mozambique, Botswana, the DRC, Kenya, Somalia, Sudan, Ethiopia, Tanzania, Eritrea, and Djibouti.
+**Core Objective:** Synthesise climate monitoring outputs from Focus Areas 1–3 into agricultural interpretation using PyAEZ (FAO/AIT), computing thermal climate classifications, Length of Growing Period (LGP), and crop suitability maps for Zimbabwe, Malawi, Mozambique, Botswana, the DRC, Madagascar, Kenya, Somalia, Sudan, Ethiopia, Tanzania, Eritrea, and Djibouti.
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nelson1798/NOAA/blob/zambia-workshop/04_AgroEcological_Zoning_PyAEZ.ipynb)
 
