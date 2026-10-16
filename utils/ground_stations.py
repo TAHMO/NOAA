@@ -11,7 +11,7 @@ def plot_stations_folium(dataframes, colors=None):
         colors = ["blue", "red", "green", "purple", "orange"]
     
     # Create a base map; you can adjust the initial location/zoom as needed
-    m = folium.Map(location=[0, 0], zoom_start=2)
+    m = folium.Map(location=[0, 0], zoom_start=2, tiles='CartoDB positron')
     
     # Add markers for each dataframe
     for df, color in zip(dataframes, colors):
