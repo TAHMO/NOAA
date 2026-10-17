@@ -1,12 +1,11 @@
 # Southern Africa Preparation Notes (Zambia workshop, 24–29 Nov)
 
 Branch: `zambia-workshop`, created from `main`. The East Africa configuration on
-`main` and the Madagascar work on `madagascar-work` are untouched.
+`main` is untouched.
 
-Countries added: **Zimbabwe, Malawi, Mozambique, Botswana, Democratic Republic
-of the Congo (DRC) and Madagascar**. All four notebooks keep their existing workflow. On this
-branch the dropdowns list the new countries first and default to **Zimbabwe**.
-The East African countries are still selectable and behave as on `main`.
+Countries: **Zimbabwe, Malawi, Mozambique, Botswana and the Democratic Republic
+of the Congo (DRC)** only, as requested. All four notebooks keep their existing
+workflow; the dropdowns list only these five countries and default to **Zimbabwe**.
 
 ## 1. Selected date ranges
 
@@ -28,8 +27,8 @@ The East African countries are still selectable and behave as on `main`.
   * **2024/25** was wet, with Cyclone Chido and the Gaborone and Kinshasa floods.
 
   This is directly relevant to a Zambia-hosted workshop.
-* Every country gets a well-documented event inside the window. A 2021–2023
-  window (as used for Madagascar) had no comparable Zimbabwe or Botswana events.
+* Every country gets a well-documented event inside the window. An earlier
+  2021–2023 window had no comparable Zimbabwe or Botswana events.
 * The window is 731 days long, the same as the East Africa window.
 
 ### IMERG V06 → V07 (code change)
@@ -52,14 +51,13 @@ to 2025-09-30.
 | Mozambique | Tropical Cyclone Chido | 15 Dec 2024 | 12-12 → 12-19 | Mecúfi, Cabo Delgado (-13.28, 40.57) | ~260 km/h winds, ~250 mm in a day; 94–120 deaths; ~110,000 homes destroyed ([Al Jazeera](https://www.aljazeera.com/amp/news/2024/12/19/cyclone-chido-death-toll-in-mozambique-rises-to-73)) |
 | Botswana | Gaborone floods | 16–20 Feb 2025 | 02-15 → 02-22 | Gaborone (-24.65, 25.91) | ≥9 deaths, 5,000+ displaced; ~40-yr return period ([WWA](https://www.worldweatherattribution.org/increasing-extreme-rainfall-and-rapid-urbanisation-major-drivers-behind-gaborones-deadly-floods/)) |
 | DRC | Kinshasa floods | 4–5 Apr 2025 | 04-02 → 04-09 | Ndjili River area (-4.38, 15.33) | Ndjili River overflowed; ≥33 deaths ([IOL](https://iol.co.za/news/world/2025-04-08-congos-capital-kinshasa-faces-crisis-as-flooding-death-toll-rises-to-33/)) |
-| Madagascar | Tropical Cyclone Gamane | 27 Mar 2024 | 03-24 → 03-31 | Vohémar (-13.36, 50.00) | Landfall ~150 km/h in Vohémar district; 14–18 deaths, ~37,000 affected ([Al Jazeera](https://www.aljazeera.com/news/2024/3/28/eleven-dead-thousands-affected-as-cyclone-gamane-batters-madagascar), [IFRC](https://go-api.ifrc.org/api/DownloadFile/87574/MDRMG022dfr)) |
 
 The Zimbabwe case is deliberately a **drought**: it tests whether the products
 agree on near-zero rain, not on a flood peak.
 
 Considered but not used: Cyclone Freddy in Malawi/Mozambique (March 2023) and the
 Kinshasa floods of 13 December 2022. Both are strong events but fall before the
-chosen window. Freddy is already configured on the `madagascar-work` branch.
+chosen window.
 
 ### Heat (Notebook 03 `HEAT_EVENTS`)
 
@@ -67,10 +65,7 @@ chosen window. Freddy is already configured on the `madagascar-work` branch.
 Services issued a nationwide heatwave warning with forecast maxima of 39–42 °C
 until at least 27–30 Oct 2023 ([Crisis24](https://crisis24.garda.com/alerts/2023/10/botswana-namibia-heatwave-forecast-across-much-of-both-countries-through-at-least-oct-30)).
 Regional outlooks gave 35–40 °C, 2–8 °C above average, across Botswana,
-Zimbabwe and Mozambique. All five countries use this event; the East African
-countries keep March 2024. **Madagascar** uses the same month, its warmest since
-1950, with the comparison window on its 10–14 Oct Tmax peak
-([World Weather Attribution](https://www.worldweatherattribution.org/?p=2314)).
+Zimbabwe and Mozambique. All five countries use this event.
 
 ## 3. Datasets
 
@@ -90,7 +85,6 @@ Same products as the existing workflow:
 | Mozambique | [30.2, -26.9, 41.0, -10.4] | Maputo |
 | Botswana | [19.9, -27.0, 29.4, -17.7] | Gaborone |
 | DRC | [12.0, -13.5, 31.4, 5.4] | Kinshasa |
-| Madagascar | [43.0, -25.7, 50.6, -11.9] | Antananarivo |
 
 ### GHCN coverage (checked against NOAA's public archive)
 
@@ -111,14 +105,9 @@ via the `custom` upload.
 
 ## 4. Assumptions and limitations
 
-* **TAHMO coverage for the five countries was not verified** from here. If
-  Notebook 01 reports 0 stations, use `"custom"` with national data. GHCN is
-  too sparse (see above).
-* **Madagascar** was added to this branch so one workshop branch covers every
-  requested country. Its separate `madagascar-work` branch uses an earlier window
-  (Jul 2021 – Jun 2023) with different cyclone case studies. On this branch it
-  follows the shared Jul 2023 – Jun 2025 window (Cyclone Gamane). GHCN coverage
-  for Madagascar is patchy (best station ~550 of 730 days in 2021–2023).
+* **TAHMO coverage** (stations in TAHMO's metadata, Oct 2026): Malawi 30,
+  Zimbabwe 19, Mozambique 19, DRC 19, Botswana 0. For Botswana use GHCN or a
+  `"custom"` national export; GHCN alone is too sparse (see above).
 * **Zambia is not in the requested list** although the workshop is in Zambia. It
   can be added the same way (bbox, capital, event) if needed.
 * **DRC is very large**, and its equatorial north and centre have a bimodal rainy
