@@ -25,6 +25,14 @@ climate monitoring and risk assessment.
 [![Open Notebook: 02_Precip_Trends.ipynb In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/03_Temperature_Quality_PET.ipynb)
 
 
+## SAFE4ALL - Flood & Drought Risk Mapping
+**Core Objective**: To map flood and drought risk (Hazard x Exposure x Vulnerability) for Kenya, Zimbabwe and Ghana
+with Google Earth Engine, producing classified risk maps and district risk statistics (GeoTIFF, CSV, Shapefile,
+interactive HTML), with TAHMO stations used to validate satellite rainfall. See [SAFE4ALL_Risk_Mapping](SAFE4ALL_Risk_Mapping/).
+
+[![Open Notebook: SAFE4ALL_Climate_Risk_Assessment_Workshop.ipynb In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/main/SAFE4ALL_Risk_Mapping/SAFE4ALL_Climate_Risk_Assessment_Workshop.ipynb)
+
+
 <br>
 <br>
 <br>
