@@ -1,0 +1,4 @@
+country,site_name,requested_longitude,requested_latitude,spw_longitude,spw_latitude,rainfall_longitude,rainfall_latitude,forecast_longitude,forecast_latitude,window_start,window_end,example_initialization
+Zambia,Chipata area,32.65,-13.63,32.625,-13.625,32.625,-13.625,32.625,-13.625,2023-09-01,2023-12-31,2023-11-23
+Malawi,Lilongwe area,33.78,-13.98,33.875,-13.875,33.875,-13.875,33.875,-13.875,2023-09-01,2023-12-31,2023-11-23
+Nigeria,Kaduna area,7.44,10.52,7.375,10.625,7.375,10.625,7.375,10.625,2023-04-01,2023-07-31,2023-05-23

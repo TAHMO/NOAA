@@ -48,6 +48,28 @@ The primary objective is to equip national meteorological agencies with the skil
 
 ---
 
+## Focus Area 5 — Seasonal Risk: From Weather to Agricultural Risk (Exercise 3, Practical 1)
+
+**Core Objective:** Explore how weather and seasonal forecasts relate to national maize yield in Zambia, Malawi, Zimbabwe, Botswana, Mozambique and Nigeria (1984–2024): seasonal rainfall, SPI-3, heat days, ENSO and lead-zero seasonal forecast skill. The practical ends with a group country brief.
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop/Exercise_3/Practical_1_weather_yield/yield_weather_practical_restored.ipynb)
+
+Folder: [Exercise_3/Practical_1_weather_yield](Exercise_3/Practical_1_weather_yield)
+
+---
+
+## Focus Area 6 — Short-Term Forecasts & Planting Decisions: SPW v2 lite (Exercise 3, Practical 2)
+
+**Core Objective:** Apply SPW v2, the rain rules GAP uses to advise farmers when to plant, at one example point in Zambia, Malawi or Nigeria for the 2023 and 2024 seasons. Compare it with the original 40 mm rule, and check it against observed rainfall, soil moisture and One Acre Fund farm yields in Malawi. The practical ends with a group planting-window output.
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop/Exercise_3/SPW_v2_lite_practical/spw_practical_toolkit_v2.ipynb)
+
+Folder: [Exercise_3/SPW_v2_lite_practical](Exercise_3/SPW_v2_lite_practical)
+
+> **Exercise 3 notebooks:** no Google Earth Engine or live data is needed, because all the data is packaged in each practical's `data/` folder. In Colab, run the first cell (*Colab setup*): it copies that `data/` folder into the Colab session, and then every section runs as written.
+
+---
+
 <!-- ## Service Account & Shared Drive
 
 All notebooks authenticate with Google Earth Engine using a shared service account and load pre-computed datasets from the NOAA-workshop2 Shared Drive, so no manual data upload or API configuration is required. -->
