@@ -1,6 +1,6 @@
 # NOAA Workshop
 
-> **Branch `zambia-workshop` (Zambia workshop, 24–29 Nov):** the notebooks cover
+> **Branch `zambia-workshop-2` (Zambia workshop, 24–29 Nov):** the notebooks cover
 > the participating countries: **Zambia (host), Angola, Botswana, Kenya, Malawi, Mozambique,
 > Nigeria, Rwanda, Tanzania and Zimbabwe**, with Zimbabwe as the default.
 > The analysis period is Jul 2023 – Jun 2025: the El Niño drought season plus the wet
@@ -8,8 +8,8 @@
 > Zambia and Zimbabwe droughts, Cyclone Chido, and the Garissa, Gaborone, Kigali and Mokwa floods).
 > See [ZAMBIA_WORKSHOP_NOTES.md](ZAMBIA_WORKSHOP_NOTES.md) for the details.
 >
-> The **Open in Colab** links below open the notebooks from the `zambia-workshop` branch of
-> [TAHMO/NOAA](https://github.com/TAHMO/NOAA/tree/zambia-workshop), and the notebooks install the
+> The **Open in Colab** links below open the notebooks from the `zambia-workshop-2` branch of
+> [TAHMO/NOAA](https://github.com/TAHMO/NOAA/tree/zambia-workshop-2), and the notebooks install the
 > shared `utils` package from that same branch.
 
 The primary objective is to equip national meteorological agencies with the skills to access, explore, and apply high-resolution reanalysis datasets. A specific focus is on understanding severe weather events, including extreme rainfall, high winds, and temperature anomalies.
@@ -20,7 +20,7 @@ The primary objective is to equip national meteorological agencies with the skil
 
 **Core Objective:** Equip NMHS participants with tools for quality-controlling ground station data and validating it against satellite products, enabling identification of network issues and building confidence in observational networks.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop/01_Ground_QC_improved_v5.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop-2/01_Ground_QC_improved_v5.ipynb)
 
 ---
 
@@ -28,7 +28,7 @@ The primary objective is to equip national meteorological agencies with the skil
 
 **Core Objective:** Compare next-generation precipitation datasets for historical trends, anomalies, and extreme event performance, enabling NMHS participants to select optimal products for climate monitoring and risk assessment.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop/NOAA_Rainfall_Skill_Explorer_v2.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop-2/NOAA_Rainfall_Skill_Explorer_v2.ipynb)
 
 ---
 
@@ -36,7 +36,7 @@ The primary objective is to equip national meteorological agencies with the skil
 
 **Core Objective:** Demonstrate the advantages of high-resolution temperature data in capturing microclimates and computing derived metrics such as Potential Evapotranspiration (PET) for improved assessment of heat-related risks.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop/03_Temperature_Quality_PET.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop-2/03_Temperature_Quality_PET.ipynb)
 
 ---
 
@@ -44,7 +44,7 @@ The primary objective is to equip national meteorological agencies with the skil
 
 **Core Objective:** Synthesise climate monitoring outputs from Focus Areas 1–3 into agricultural interpretation using PyAEZ (FAO/AIT), computing thermal climate classifications, Length of Growing Period (LGP), and crop suitability maps for each of the workshop countries.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop/04_AgroEcological_Zoning_PyAEZ.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop-2/04_AgroEcological_Zoning_PyAEZ.ipynb)
 
 ---
 
@@ -52,7 +52,7 @@ The primary objective is to equip national meteorological agencies with the skil
 
 **Core Objective:** Explore how weather and seasonal forecasts relate to national maize yield in Zambia, Malawi, Zimbabwe, Botswana, Mozambique and Nigeria (1984–2024): seasonal rainfall, SPI-3, heat days, ENSO and lead-zero seasonal forecast skill. The practical ends with a group country brief.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop/Exercise_3/Practical_1_weather_yield/yield_weather_practical_restored.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop-2/Exercise_3/Practical_1_weather_yield/yield_weather_practical_restored.ipynb)
 
 Folder: [Exercise_3/Practical_1_weather_yield](Exercise_3/Practical_1_weather_yield)
 
@@ -62,7 +62,7 @@ Folder: [Exercise_3/Practical_1_weather_yield](Exercise_3/Practical_1_weather_yi
 
 **Core Objective:** Apply SPW v2, the rain rules GAP uses to advise farmers when to plant, at one example point in Zambia, Malawi or Nigeria for the 2023 and 2024 seasons. Compare it with the original 40 mm rule, and check it against observed rainfall, soil moisture and One Acre Fund farm yields in Malawi. The practical ends with a group planting-window output.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop/Exercise_3/SPW_v2_lite_practical/spw_practical_toolkit_v2.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TAHMO/NOAA/blob/zambia-workshop-2/Exercise_3/SPW_v2_lite_practical/spw_practical_toolkit_v2.ipynb)
 
 Folder: [Exercise_3/SPW_v2_lite_practical](Exercise_3/SPW_v2_lite_practical)
 
@@ -70,15 +70,13 @@ Folder: [Exercise_3/SPW_v2_lite_practical](Exercise_3/SPW_v2_lite_practical)
 
 ---
 
-<!-- ## Service Account & Shared Drive
+## Earth Engine access
 
-All notebooks authenticate with Google Earth Engine using a shared service account and load pre-computed datasets from the NOAA-workshop2 Shared Drive, so no manual data upload or API configuration is required. -->
+The notebooks sign you in to Google Earth Engine with **your own Google account**: run the login cell and click **Allow** when Colab asks. All Earth Engine usage counts against the workshop project `noaa-workshop-2026`, which the workshop's Google Group can use. There is no service account key.
 
-<!-- | Resource | Details |
-|---|---|
-| Service account | `gee-notebook-user@natural-notch-435413-j3.iam.gserviceaccount.com` |
-| Key file | `Shareddrives/NOAA-workshop2/credentials/gee_service_account.json` (Shared Drive members only) |
-| Shared Drive | `Shareddrives/NOAA-workshop2` | -->
+If the login cell says access was refused, ask a facilitator to add the Google account you signed in with to the workshop group, then re-run the cell.
+
+Pre-computed datasets load from the `NOAA-workshop2` Shared Drive, which is shared with the same group.
 <br>
 <br>
 <br>
